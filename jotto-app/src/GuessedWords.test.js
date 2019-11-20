@@ -21,3 +21,11 @@ const setup = (props={}) => {
 test('does not throw warning with expected props', () => {
   checkProps(GuessedWords, defaultProps)
 })
+
+describe('if there are no words guessed', () => {
+
+})
+
+describe('if there are words guessed', () => {
+
+})
