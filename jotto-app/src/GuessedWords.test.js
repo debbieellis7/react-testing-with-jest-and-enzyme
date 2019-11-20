@@ -26,7 +26,7 @@ describe('if there are no words guessed', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = setup({ guessedWord: [] })
+    wrapper = setup({ guessedWords: [] })
   })
 
   test('renders without error', () => {
