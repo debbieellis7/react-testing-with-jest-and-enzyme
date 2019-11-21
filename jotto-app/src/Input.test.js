@@ -110,7 +110,7 @@ describe('`guessWord` action creator call', () => {
 
     // simulate clicked
     const submitButton = findByTestAttr(wrapper, 'submit-button')
-    submitButton.simulate('click')
+    submitButton.simulate('click', { preventDefault() {} })
   })
 
   test('`guessWord` was called once', () => {
