@@ -6,7 +6,7 @@ export class UnconnectedInput extends Component {
 
   // initialize state
   state = {
-    currentGuess: null
+    currentGuess: ''
   }
 
   submitGuessedWord = e => {
