@@ -125,4 +125,8 @@ describe('`guessWord` action creator call', () => {
 
     expect(guessWordArg).toBe(guessedWord)
   })
+
+  test('input box clears on submit', () => {
+    expect(wrapper.state('currentGuess')).toBe('')
+  })
 })
