@@ -27,5 +27,11 @@ test('renders non-zero language icons', () => {
 })
 
 test('calls setLanguage prop upon click', () => {
+  const wrapper = setup()
+  const langaugeIcons = findByTestAttr(wrapper, 'language-icon')
 
+  const firstIcon = langaugeIcons.first()
+  firstIcon.simulate('click')
+
+  expect(mockSetLanguage).toHaveBeenCalled()
 })
