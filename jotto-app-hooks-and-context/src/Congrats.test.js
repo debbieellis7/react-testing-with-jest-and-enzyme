@@ -1,20 +1,38 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { findByTestAttr, checkProps } from '../test/testUtils'
 import Congrats from './Congrats'
+import languageContext from './contexts/languageContext'
 
 const defaultProps = { success: false }
 
 /**
  * Factory function to create a ShallowWrapper for the Congrats component.
  * @function setup
- * @param {object} props - Component props specific to this setup
+ * @param {object} testValues - Context values specific to this setup
  * @returns {ShallowWrapper}
  */
-const setup = (props={}) => {
-  const setupProps = {...defaultProps, ...props}
-  return shallow(<Congrats {...setupProps} />)
+const setup = ({ success, language }) => {
+  language = language || 'en'
+  success = success || false
+
+  return mount(
+    <languageContext.Provider value={language}>
+      <Congrats success={success} />
+    </languageContext.Provider>
+  )
 }
+
+describe('languagePicker', () => {
+
+  test('correctly renders congrats string in english', () => {
+
+  })
+
+  test('correctly renders congrats string in emoji', () => {
+
+  })
+})
 
 test('renders without error', () => {
   const wrapper = setup()
