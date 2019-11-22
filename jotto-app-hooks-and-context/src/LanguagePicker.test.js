@@ -20,7 +20,10 @@ test('does not throw warning with expected props', () => {
 })
 
 test('renders non-zero language icons', () => {
+  const wrapper = setup()
+  const langaugeIcons = findByTestAttr(wrapper, 'language-icon')
 
+  expect(langaugeIcons.length).toBeGreaterThan(0)
 })
 
 test('calls setLanguage prop upon click', () => {
