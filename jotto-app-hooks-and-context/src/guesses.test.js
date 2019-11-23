@@ -26,4 +26,22 @@ describe('test word guesses', () => {
   beforeEach(() => {
     [wrapper, inputBox, submitButton] = setup('party')
   })
+
+  describe('correct guess', () => {
+
+    beforeEach(() => {
+      const mockEvent = { target: { value: 'party' } }
+      inputBox.simulate('change', mockEvent)
+      submitButton.simulate('click')
+    })
+  })
+
+  describe('incorrect guess', () => {
+
+    beforeEach(() => {
+      const mockEvent = { target: { value: 'train' } }
+      inputBox.simulate('change', mockEvent)
+      submitButton.simulate('click')
+    })
+  })
 })
