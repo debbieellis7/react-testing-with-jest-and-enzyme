@@ -73,6 +73,28 @@ describe('test word guesses', () => {
       test('Input box remains', () => {
         expect(inputBox.exists()).toBe(true)
       })
+
+      test('GuessedWords table row count reflects updated guess', () => {
+        const guessedWordsTableRows = findByTestAttr(wrapper, 'guessed-word')
+
+        expect(guessedWordsTableRows.length).toBe(2)
+      })
+    })
+  })
+
+  describe('empty guessWords', () => {
+
+    beforeEach(() => {
+      [wrapper, inputBox, submitButton] = setup([], 'party')
+    })
+
+    test('guessedWords shows correct guesses after incorrect guess', () => {
+      const mockEvent = { target: { value: 'train' } }
+      inputBox.simulate('change', mockEvent)
+      submitButton.simulate('click')
+      const guessedWordsTableRows = findByTestAttr(wrapper, 'guessed-word')
+
+      expect(guessedWordsTableRows.length).toBe(1)
     })
   })
 })
